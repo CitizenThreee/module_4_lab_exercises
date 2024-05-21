@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e3f2fd;
+            padding: 5px 0px 0px 30px
+        }
+
+        .card {
+            padding: 10px;
+        }
+
+        .portfolio-card {
+            padding: 10px;
+            width: 300px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 2.5em;
+            padding: 0 0 10px 0;
+        }
+
+        .artist-title {
+            font-weight: 600;
+            font-size: 3em;
+            padding: 0 0 10px 0;
+        }
+
+        .card-description {
+            font-weight: 400;
+            font-size: 2em
+        }
+    </style>
+</head>
+
+<body>
+    <template id="artist-template">
+        <div class="card">
+            <div class="card-body">
+                <div class="artist-title"></div>
+                <div id="portfolio-list"></div>
+            </div>
+        </div>
+    </template>
+    <template id="artist-portfolio-template">
+        <div class="portfolio-card">
+            <div class="card-body">
+                <a class="card-title" target="_blank"></a>
+            </div>
+        </div>
+    </template>
+    <div id="artist-list"></div>
+</body>
+
+<script>
+    const artists = [{name: "Van Gogh",portfolio:[{title: "portrait", url:"https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
+    {title: "sky", url:"https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" },]},
+    {name: "Leonardo da Vinci",portfolio:[{title: "Mona Lisa", url:"https://cdn.britannica.com/24/189624-131-BAF1184D/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg"},
+    {title: "Last Super", url:"https://cdn.britannica.com/04/95904-050-7EB39FC8/Last-Supper-wall-painting-restoration-Leonardo-da-1999.jpg" },
+    {title: "Vitruvian Man", url:"https://cdn.britannica.com/68/145968-131-A9A11AA4/Vitruvian-Man-Leonardo-da-Vinci-Gallerie-dellAccademia.jpg" },]},
+    {name: "Claude Monet",portfolio:[{title: "Impression Sunrise", url:"https://www.artst.org/wp-content/uploads/2020/06/Impression-Sunrise.jpg.webp"},
+    {title: "Water Lilies", url:"https://www.artst.org/wp-content/uploads/2020/06/water-lilies.jpg.webp" }]},]
+
+    
+    function addArtistCards(artistsArray) {
+        artistsArray.forEach(artist => {
+            const artistTemplate = document.getElementById("artist-template").content.cloneNode(true);
+            // populate the template
+            artistTemplate.querySelector('.artist-title').innerText = artist.name;
+            // include the populated template into the page
+            document.querySelector('#artist-list').appendChild(artistTemplate);
+
+            artist.portfolio.forEach(item => {
+                const portolioItemTemplate = document.getElementById("artist-portfolio-template").content.cloneNode(true);
+                // populate the template
+                portolioItemTemplate.querySelector('.card-title').innerText = item.title;
+                portolioItemTemplate.querySelector('.card-title').href = item.url;
+
+                // include the populated template into the page
+                document.querySelector('#artist-list').appendChild(portolioItemTemplate);
+            })
+        })
+    }
+
+    addArtistCards(artists)
+    </script>
+</html>
