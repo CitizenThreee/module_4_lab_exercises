@@ -18,7 +18,7 @@ function setOperator(op) {
 }
 
 function calculateNum() {
-    if(operator){
+    if(operator && nums[1]){
         switch(operator){
             case "+": 
                 finalNum = nums[0] + nums[1];
@@ -31,11 +31,10 @@ function calculateNum() {
                 break;
             case "x":
                 finalNum = nums[0] * nums[1];
-                break;
         }
-    }
 
-    updateInput(true);
+        updateInput(true);
+    }
 }
 
 function updateInput(showingEquals){
@@ -46,12 +45,12 @@ function updateInput(showingEquals){
 
 function clearAll() {
     operator = null;
+    finalNum = 0;
     nums = [0,];
 }
 
 appendNum(15);
 appendNum(2);
-setOperator("-");
 appendNum(6);
 appendNum(4);
 calculateNum();
