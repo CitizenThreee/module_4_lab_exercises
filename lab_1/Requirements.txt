@@ -1,0 +1,38 @@
+Town Square
+
+A social media platform focusing on custom spaces 
+for physical communities to connect, share and find 
+information, plan events, engage in discussion, and 
+foster a healthy community.
+
+Requirements:
+    User profile and data
+    Login and Logout functionalities
+    Community search
+    Request to join communities
+    Community home
+    Community tabs
+    Main chat tab
+    Alert tab
+    Event tab
+    Forum tab
+    Activity tab
+    Members tab
+    **Groups tab
+    **Buisnesses tab
+    **Admin chat
+    Amin features:
+        Accept / reject join requests
+        Kick people from the community
+        Edit / remove other people’s content
+        Approve content based on community and tab settings
+        Post alerts
+        Set community and tab settings
+    Owner features
+        Add / remove tabs
+        Request to remove community
+    Post in forums
+    Send messages
+    Create events
+    View other members’ profiles, and see shared info: contact info, community roles, etc.
+    Set your profile info for each community separately
