@@ -46,6 +46,7 @@ function toggleAutoReload(){
     else{
         autoReload = false;
         interval = setInterval(() => {
+            //Since this code is the same for the setInterval up above, this code could be put into it's own function that both setIntervals would call but this is a great extension nonetheless
             loadNews();
             console.log('interval')
         }, 5000);
